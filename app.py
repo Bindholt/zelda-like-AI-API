@@ -5,12 +5,14 @@ import mss
 import mss.tools
 from io import BytesIO
 from flask import Flask, jsonify
+from flask_cors import CORS
 import time
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 
 
 app = Flask(__name__)
+CORS(app)
 
 # Load your Keras model
 model = tf.keras.models.load_model('model.h5')
